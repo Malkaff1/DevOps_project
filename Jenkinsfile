@@ -17,13 +17,13 @@ pipeline {
     stage('Run Container') {
       steps {
         sh 'docker rm -f nginx-web || true'
-        sh 'docker run -d -p 8080:80 --name nginx-web my-nginx-web'
+        sh 'docker run -d -p 8082:80 --name nginx-web my-nginx-web'
       }
     }
 
     stage('Smoke Test') {
       steps {
-        sh 'curl -f http://localhost:8080'
+        sh 'curl -f http://localhost:8082'
       }
     }
   }
