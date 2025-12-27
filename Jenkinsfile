@@ -2,12 +2,6 @@ pipeline {
   agent any
 
   stages {
-    stage('Checkout') {
-      steps {
-        echo 'Code is already checked out by Jenkins SCM'
-      }
-    }
-
     stage('Build Image') {
       steps {
         sh 'docker build -t my-nginx-web ./docker/nginx'
@@ -27,3 +21,4 @@ pipeline {
       }
     }
   }
+}
